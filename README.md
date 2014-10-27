@@ -3,18 +3,18 @@ SPUD INSTALLATION INSTRUCTIONS
 
 1. Install dependencies
 
-	apt-get install apache2 php5 mysql-server php5-mysql subversion
+```apt-get install apache2 php5 mysql-server php5-mysql subversion```
 
 2. Get the SPUD code
-	cd /var/www
-	tar zxvf spud-1.0.tar.gz
+```cd /var/www```
+```tar zxvf spud-1.0.tar.gz```
 
 3. Database
 a) Create a new database
-	mysqladmin -u root -p create spud
+```mysqladmin -u root -p create spud```
 
 b) Edit SPUD database settings
-Edit /var/www/spud/app/config/database.php
+Edit `/var/www/spud/app/config/database.php`
 
 	var $default = array(
 		'driver' => 'mysql',
@@ -27,17 +27,17 @@ Edit /var/www/spud/app/config/database.php
 	);
 
 c) Create database schema
-	cd /var/www/spud/app/install
-	mysql -u root spud -p < spud_db_schema.sql
+```cd /var/www/spud/app/install```
+```mysql -u root spud -p < spud_db_schema.sql```
 
 4. Change file permissions
-	cd  /var/www/spud/app/
-	chown -Rf www-data.www-data tmp/
+```cd  /var/www/spud/app/```
+```chown -Rf www-data.www-data tmp/```
 
 
 5. Enable Apache rewrite module
-	cd /etc/apache2
-	a2enmod rewrite
+```cd /etc/apache2```
+```a2enmod rewrite```
 
 
 6. Edit Apache2 000-default file
