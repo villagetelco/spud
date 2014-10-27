@@ -1,0 +1,4 @@
+#########################################################################################################
+# SPUD 2011
+# Cronjob for VIS update
+*/5 * * * * root /usr/bin/wget -O - -q -t 1 http://localhost/spud/nodes/update  >/dev/null 2>&1

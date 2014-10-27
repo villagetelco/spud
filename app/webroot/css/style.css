@@ -1,0 +1,362 @@
+body {
+
+    position: absolute;
+    margin: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 1360px;
+    color: #000;
+    font-size:12px;
+    background: #FFF;
+    font-family: Lucinda Sans, Verdana, Helvetica, sans-serif;      
+
+}
+
+#main_content {
+
+    float: left;
+    width: 1380px;
+    padding: 0px 10px 0px 10px;                                                                    
+    margin: 0px;                                                                                    
+    min-height: 800px;                                                                              
+    background-color: #fff;
+
+} 
+
+
+a {
+	color: #000;
+	font-weight: bold;
+	text-decoration:none;
+}
+
+a.hover {
+	background:#6699cc;
+	color: #000;
+	text-decoration:none;
+}
+a img {
+	border:none;
+}
+h1, h2, h3, h4 {
+
+	font-weight: normal;
+}
+
+h1 {
+	color: #352e2b;
+	font-size: 200%;
+	margin: 0.5em;
+	padding-top: 10px;
+	text-align: left;
+
+}
+
+h2 {
+	color: #352e2b;
+	font-size: 120%;
+	margin: 0.3em 0;
+	padding-top: 0.8em;
+	font-weight: bold;
+}
+
+h3 {
+	color: #993;
+	font-size: 165%;
+	padding-top: 1.5em;
+}
+
+h4 {
+	color: #993;
+	font-weight: normal;
+	padding-top: 0.5em;
+}
+
+
+                                                                                                    
+#top_nav {
+
+        height: 50px;
+        width: 1400px;
+        margin: 0px;
+        padding: 0px;
+	background-color: #f99d1c;
+	border-left: #5a4a42 2px solid;
+	border-right: #5a4a42 2px solid;
+
+
+}
+
+#content_wrap {
+
+        width: 1400px;
+        overflow: auto;
+	border-left: #5a4a42 2px solid;
+	border-right: #5a4a42 2px solid;
+        
+}
+
+
+.header {
+                                                                                 
+        height: 15px;                                                                                      
+        width: 1400px;
+        padding: 0;
+        margin-top: 15px;
+        background-color: #f99d1c;
+        border-top-right-radius: 20px;
+        -moz-border-radius-topright: 20px;
+        border-top-left-radius: 20px;                                                                  
+        -moz-border-radius-topleft: 20px;
+	border-left: #5a4a42 2px solid;
+	border-right: #5a4a42 2px solid;
+	border-top: #5a4a42 2px solid;
+
+
+                                                          
+}
+
+.breadcrumb  {
+                 
+   width: 1380px;
+   padding: 10px;
+   background-color: #fff;
+   border-left: #5a4a42 2px solid;
+   border-right: #5a4a42 2px solid;
+   border-top: #5a4a42 2px solid;
+
+}
+
+.footer  {
+
+        background-color: #f99d1c;
+        width: 1400px;
+        height: 30px;                                                                           
+        text-align: center;
+        padding-top: 8px;
+        color: #5a4a42;
+        font-weight: bold;
+        font-size: 14px; 
+        border-bottom-right-radius: 20px;                                                               
+        -moz-border-radius-bottomright: 20px;
+        border-bottom-left-radius: 20px;                                                                
+        -moz-border-radius-bottomleft: 20px;
+	border-left: #5a4a42 2px solid;
+	border-right: #5a4a42 2px solid;
+	border-top: #5a4a42 2px solid;
+	border-bottom: #5a4a42 2px solid;
+ 
+}
+
+table.stand-alone{                                                                                       
+      padding-top:10px;                                                                                  
+      padding-bottom:10px;                                                                               
+}  
+
+table tr.stand-alone td{                                                                                 
+                                                                                                         
+       background:#eee;                                                                               
+       border: #000 0px solid;                                                                           
+       -moz-border-radius-topleft:10px;                                                                  
+       border-top-left-radius:10px;                                                                      
+       -moz-border-radius-topright:10px;                                                                 
+       border-top-right-radius:10px;                                                                     
+                                                                                                         
+       }   
+
+
+table {                                                                                                  
+      background:#eee;
+      margin:10px;
+      border:#ccc 1px solid;                                                                             
+      -moz-border-radius:10px;                                                                           
+      -webkit-border-radius:10px;                                                                        
+      border-radius:10px;
+
+
+      }                                                                                                  
+                                                                                                         
+table.none {                                                                                             
+                                                                                                         
+           border:none;                                                                                  
+                                                                                                         
+      }                                                                                                  
+                                                                                                         
+                                                                                                         
+table.blue {                                                                                             
+                                                                                                         
+           background:#eee;           
+           border:none;                                                                                  
+                                                                                                         
+      }                                                                                                  
+                                                                                                         
+                                                                                                         
+table.stand-alone{                                                                                       
+      padding-top:10px;                                                                                  
+      padding-bottom:10px;                                                                               
+}                                                                                                        
+                                                                                                         
+table th {
+       padding:4px 10px;
+       text-align: left;
+    }  
+                                                                                                         
+table tr.stand-alone td{                                                                                 
+                                                                                                         
+       background:#eee;                                                                               
+       border: #000 0px solid;                                                                           
+       -moz-border-radius-topleft:10px;                                                                  
+       border-top-left-radius:10px;                                                                      
+       -moz-border-radius-topright:10px;                                                                 
+       border-top-right-radius:10px;                                                        
+      }                                                                                                 
+                                                                                                         
+table tr.none td{                                                                                        
+                                                                                                         
+        background: #fff;                                                                                
+        border: #000 0px solid;                                                                          
+                                                                                                         
+                                                                                                         
+       }                                                                                                 
+                                                                                                         
+                                                                                                         
+table tr.blue td{                                                                                        
+                                                                                                         
+        background:#eee;                                                                              
+        border: #000 0px solid;                                                                          
+                                                                                                         
+       }    
+
+table td {                                                                                               
+      background:#fff;                                                                                   
+      padding:2px 10px 4px 10px}                                                                         
+                                                                                                         
+                                                                                                         
+                                                                                                         
+table tr:last-child td:first-child {                                                                     
+      -moz-border-radius-bottomleft:10px;                                                                
+      -webkit-border-bottom-left-radius:10px;                                                            
+      border-bottom-left-radius:10px                                                                     
+      }                                                                                                  
+                                                                                                         
+table tr:last-child td:last-child {                                                                      
+      -moz-border-radius-bottomright:10px;                                                               
+      -webkit-border-bottom-right-radius:10px;                                                           
+      border-bottom-right-radius:10px                                                                    
+      }                                                                                                  
+                                                                                                         
+table.collapsed {                                                                                        
+                                                                                                         
+      border-spacing: 0;                                                                                 
+                                                                                                         
+      }                     
+
+.table_sub_header {                                                                                      
+    font-size: 1.5em;                                                                                    
+    font-weight: bold;                                                                                   
+    color: #f89843;                                                                                      
+}
+                                                                                     
+                                                                                                         
+td {                                                                                                     
+                                                                                                         
+     border:1px solid #eee;                                                                              
+     font-size: 12px;                                                                                    
+     font-weight: normal;                                                                                
+     background-color: #fff;                                                                             
+     padding: 5px;                                                                                       
+     color: #000;                                                                                        
+}                                                                                                        
+
+td a:link, a:visited, a:hover, a:visited:hover, a:active { 
+    color: #000;
+}
+
+th a:link, a:visited, a:hover, a:visited:hover, a:active {                                               
+        color: #000;                                                                                                       
+}                                                                                                        
+
+                                                                                                         
+                                                                                                         
+
+                                                                                                         
+tr.main td {                                                                                             
+     background-color: #fff;                                                                             
+     font-weight: bold;                                                                                  
+     text-align: center;                                                                                 
+}                                  
+
+td.main  {                                                                                               
+     background-color: #fff;                                                                             
+     font-weight: bold;                                                                                  
+     text-align: center;                                                                                 
+}                                                                                                        
+                                                                                                         
+tr.middle td {                                                                                           
+     background-color: #fff;                                                                             
+     text-align: center;                                                                                 
+}                                                                                                        
+              
+
+.frameLeft {                                                                                             
+                                                                                                         
+      float: left;                                                                                      
+      padding: 5px;
+      background:#eee;
+      margin:5px;                                                                             
+      border:#ccc 1px solid;                                                                           
+      -moz-border-radius:10px;                                                                        
+      -webkit-border-radius:10px;
+      border-radius:10px;
+                                                                                                         
+}
+
+.frameRight {                                                                                            
+                                                                                      
+      float: right;                                                                                      
+      padding: 5px;                                                                                
+      background:#eee;
+      margin:5px;                                                                             
+      border:#ccc 1px solid;                                                                           
+      -moz-border-radius:10px;                                                                        
+      -webkit-border-radius:10px;
+      border-radius:10px;                                                                                                         
+}
+
+.frameRightAlone {  
+                                                                                      
+      float: right;                                                                                      
+      padding: 5px;                                                                                
+      background:#fff;
+      margin:5px;  
+}
+
+.paginator {
+    
+    margin: 12px;
+
+}
+
+.paginator-right {
+    
+    float:right;
+    margin: 12px;
+
+}
+
+.info-message {
+
+  margin: 10px;
+  color: #000;
+  font-size:14px;
+
+}
+.pre {
+
+    font-family: Courier;
+    color: #000;
+    font-size:14px;
+    margin: 10px;
+}

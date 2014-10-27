@@ -1,0 +1,143 @@
+SPUD INSTALLATION INSTRUCTIONS
+
+1) Install dependencies
+#apt-get install apache2 php5 mysql-server php5-mysql subversion
+
+2) Get the SPUD code
+cd /var/www
+tar zxvf spud-1.0.tar.gz
+
+3) Database
+a) Create a new database
+mysqladmin -u root -p create spud
+
+b) Edit SPUD database settings
+Edit /var/www/spud/app/config/database.php
+
+	var $default = array(
+		'driver' => 'mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => '<password>',
+		'database' => 'spud',
+		'prefix' => '',
+	);
+
+c) Create database schema
+cd /var/www/spud/app/install
+mysql -u root spud -p < spud_db_schema.sql
+
+4) Change file permissions
+cd  /var/www/spud/app/
+chown -Rf www-data.www-data tmp/
+
+
+5) Enable Apache rewrite module
+cd /etc/apache2
+a2enmod rewrite
+
+
+6) Edit Apache2 000-default file
+vi /etc/apache2/sites-enabled/000-default 
+
+        <Directory /var/www/spud/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+        </Directory>
+
+Restart Apache
+/etc/init.d/apache2 restart
+
+
+7) Configure SPUD
+Open configuration file: /var/www/spud/app/config/config.php
+ 
+  1. Set IP address and port number of VIS server (VIS['host'],VIS['port'])
+  The default settings will point to the Bo Kaap VIS server.
+
+  2. Set VIS server version (VIS['vis_version']) : {legacy| trunk} 
+     'legacy' is old version before migration to GIT.
+     'trunk' is new version from GIT.
+
+  3. Set VIS server mode (VIS['mode']) : {batman|batman-adv}
+
+Users interfacing with the VIS (0.4-alpha) that is included in the 
+Nano Station image from:
+http://villagetelco.org/download/firmware/vt/stable/ns2/
+should configure SPUD with the following values:
+	port 2005
+	vis_version legacy
+	mode batman 
+
+ 
+8) Add VIS update to cronjob
+
+a) Open a cronjob editor:
+crontab -e
+
+b) Add the follwing line
+*/5 * * * * /usr/bin/wget -O - -q -t 1 http://localhost/spud/nodes/update  >/dev/null 2>&1
+
+Alternatively edit the /etc/crontab and restart crond /etc/init.d/crond restart
+*/5 * * * * root /usr/bin/wget -O - -q -t 1 http://localhost/spud/nodes/update  >/dev/null 2>&1
+
+If you are behind a proxy include the --no-proxy in the wget command.
+
+9) Get started with SPUD
+Navigate to SPUD: http://localhost/spud</div>
+
+
+=================================================
+RUNNING SPUD WITH BATMAN-ADV
+=================================================
+
+To run SPUD with batmad-adv, follow the instructions below:
+
+
+1. xinetd
+Install xinetd and enable 
+Create file:  /etc/xinetd.d/vis
+
+       # default: on
+       # description: Vis socket server
+       service vis
+        {
+		port            = 2005
+   		socket_type     = stream
+   		wait            = no
+   		user            = root
+   		server          = /etc/vis.sh
+   		log_on_success  += USERID
+   		log_on_failure  += USERID
+   		disable         = no
+         }
+
+2. Create vis.sh
+#vi /etc/vis.sh
+
+    #!/bin/sh
+    batctl vd json
+
+
+
+3. Map MAC addresses to IP addresses
+
+Create file /etc/bat-hosts
+Enter mappings between MAC and IP addresses as following:
+
+      mac1  ipaddress1
+      mac2  ipaddress2
+      mac3  ipaddress3
+      mac4  ipaddress4
+
+
+4. SPUD configuration
+
+Make sure that you have configured spud to run batman-adv:
+
+  1. Set port number of VIS server to 2005  (VIS['port'])
+
+  2. Set VIS server version (VIS['vis_version']) : trunk
+
+  3. Set VIS server mode (VIS['mode']) : batman-adv
