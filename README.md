@@ -1,15 +1,17 @@
 SPUD INSTALLATION INSTRUCTIONS
+==============================
 
-1) Install dependencies
-#apt-get install apache2 php5 mysql-server php5-mysql subversion
+1. Install dependencies
 
-2) Get the SPUD code
-cd /var/www
-tar zxvf spud-1.0.tar.gz
+	apt-get install apache2 php5 mysql-server php5-mysql subversion
 
-3) Database
+2. Get the SPUD code
+	cd /var/www
+	tar zxvf spud-1.0.tar.gz
+
+3. Database
 a) Create a new database
-mysqladmin -u root -p create spud
+	mysqladmin -u root -p create spud
 
 b) Edit SPUD database settings
 Edit /var/www/spud/app/config/database.php
@@ -25,21 +27,21 @@ Edit /var/www/spud/app/config/database.php
 	);
 
 c) Create database schema
-cd /var/www/spud/app/install
-mysql -u root spud -p < spud_db_schema.sql
+	cd /var/www/spud/app/install
+	mysql -u root spud -p < spud_db_schema.sql
 
-4) Change file permissions
-cd  /var/www/spud/app/
-chown -Rf www-data.www-data tmp/
-
-
-5) Enable Apache rewrite module
-cd /etc/apache2
-a2enmod rewrite
+4. Change file permissions
+	cd  /var/www/spud/app/
+	chown -Rf www-data.www-data tmp/
 
 
-6) Edit Apache2 000-default file
-vi /etc/apache2/sites-enabled/000-default 
+5. Enable Apache rewrite module
+	cd /etc/apache2
+	a2enmod rewrite
+
+
+6. Edit Apache2 000-default file
+	vi /etc/apache2/sites-enabled/000-default 
 
         <Directory /var/www/spud/>
                 Options Indexes FollowSymLinks MultiViews
@@ -47,11 +49,11 @@ vi /etc/apache2/sites-enabled/000-default
         </Directory>
 
 Restart Apache
-/etc/init.d/apache2 restart
+	/etc/init.d/apache2 restart
 
 
-7) Configure SPUD
-Open configuration file: /var/www/spud/app/config/config.php
+7. Configure SPUD
+Open configuration file: `/var/www/spud/app/config/config.php`
  
   1. Set IP address and port number of VIS server (VIS['host'],VIS['port'])
   The default settings will point to the Bo Kaap VIS server.
@@ -71,21 +73,21 @@ should configure SPUD with the following values:
 	mode batman 
 
  
-8) Add VIS update to cronjob
+8. Add VIS update to cronjob
 
 a) Open a cronjob editor:
-crontab -e
+	crontab -e
 
 b) Add the follwing line
-*/5 * * * * /usr/bin/wget -O - -q -t 1 http://localhost/spud/nodes/update  >/dev/null 2>&1
+	*/5 * * * * /usr/bin/wget -O - -q -t 1 http://localhost/spud/nodes/update  >/dev/null 2>&1
 
 Alternatively edit the /etc/crontab and restart crond /etc/init.d/crond restart
-*/5 * * * * root /usr/bin/wget -O - -q -t 1 http://localhost/spud/nodes/update  >/dev/null 2>&1
+	*/5 * * * * root /usr/bin/wget -O - -q -t 1 http://localhost/spud/nodes/update  >/dev/null 2>&1
 
 If you are behind a proxy include the --no-proxy in the wget command.
 
-9) Get started with SPUD
-Navigate to SPUD: http://localhost/spud</div>
+9. Get started with SPUD
+Navigate to SPUD: http://localhost/spud
 
 
 =================================================
@@ -97,7 +99,7 @@ To run SPUD with batmad-adv, follow the instructions below:
 
 1. xinetd
 Install xinetd and enable 
-Create file:  /etc/xinetd.d/vis
+Create file:  `/etc/xinetd.d/vis`
 
        # default: on
        # description: Vis socket server
@@ -114,7 +116,7 @@ Create file:  /etc/xinetd.d/vis
          }
 
 2. Create vis.sh
-#vi /etc/vis.sh
+	vi /etc/vis.sh
 
     #!/bin/sh
     batctl vd json
@@ -123,7 +125,7 @@ Create file:  /etc/xinetd.d/vis
 
 3. Map MAC addresses to IP addresses
 
-Create file /etc/bat-hosts
+Create file `/etc/bat-hosts`
 Enter mappings between MAC and IP addresses as following:
 
       mac1  ipaddress1
