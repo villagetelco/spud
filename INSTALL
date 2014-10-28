@@ -1,7 +1,7 @@
 SPUD INSTALLATION INSTRUCTIONS
 
 1) Install dependencies
-#apt-get install apache2 php5 mysql-server php5-mysql subversion
+#apt-get install apache2 php5 mysql-server php5-mysql subversion git
 
 2) Get the SPUD code
 cd /var/www
