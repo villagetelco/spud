@@ -5,7 +5,7 @@ SPUD INSTALLATION INSTRUCTIONS
 
 2) Get the SPUD code
 cd /var/www
-tar zxvf spud-1.0.tar.gz
+git clone https://github.com/villagetelco/spud.git
 
 3) Database
 a) Create a new database
