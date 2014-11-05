@@ -92,7 +92,7 @@ Navigate to SPUD: http://localhost/spud</div>
 RUNNING SPUD WITH BATMAN-ADV
 =================================================
 
-To run SPUD with batmad-adv, follow the instructions below:
+To run SPUD with batmad-adv, follow the instructions below for the MP that is set up as the vis server:
 
 
 1. xinetd
@@ -133,11 +133,14 @@ Enter mappings between MAC and IP addresses as following:
 
 
 4. SPUD configuration
-
 Make sure that you have configured spud to run batman-adv:
-
   1. Set port number of VIS server to 2005  (VIS['port'])
-
   2. Set VIS server version (VIS['vis_version']) : trunk
-
   3. Set VIS server mode (VIS['mode']) : batman-adv
+
+5. Ensure that the vis server mode is permanently enabled.
+You also need to ensure that that MP is set up in vis server mode.  To do this, add the following line: 
+
+    option 'vis_mode' 'server' 
+
+to the file  /etc/config/batman-adv 
