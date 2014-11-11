@@ -119,9 +119,17 @@ Create file:  /etc/xinetd.d/vis
     #!/bin/sh
     batctl vd json
 
+3.  Edit /etc/services
 
+root@OpenWrt:~#vi /etc/services
 
-3. Map MAC addresses to IP addresses
+ and add the line:
+
+-----------------------
+vis           2005/tcp     # Vis server
+-----------------------
+
+4. Map MAC addresses to IP addresses
 
 Create file /etc/bat-hosts
 Enter mappings between MAC and IP addresses as following:
@@ -132,13 +140,13 @@ Enter mappings between MAC and IP addresses as following:
       mac4  ipaddress4
 
 
-4. SPUD configuration
+5. SPUD configuration
 Make sure that you have configured spud to run batman-adv:
   1. Set port number of VIS server to 2005  (VIS['port'])
   2. Set VIS server version (VIS['vis_version']) : trunk
   3. Set VIS server mode (VIS['mode']) : batman-adv
 
-5. Ensure that the vis server mode is permanently enabled.
+6. Ensure that the vis server mode is permanently enabled.
 You also need to ensure that that MP is set up in vis server mode.  To do this, add the following line: 
 
     option 'vis_mode' 'server' 
